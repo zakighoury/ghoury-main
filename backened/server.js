@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config({ path: 'server.env' }); 
 
 const express = require('express');
 const cors = require('cors');
@@ -7,10 +7,11 @@ const { connectToDatabase } = require('./db');
 const loggerMiddleware = require('./middleware/middleware');
 
 const app = express();
-const port = process.env.PORT || 5000; // Use PORT from environment variable or default to 5000
+const port = process.env.PORT || 5000;
+const mongodbUri = process.env.MONGODB_URI;
 
 // Connect to MongoDB
-connectToDatabase();
+connectToDatabase(mongodbUri);
 
 app.use(cors());
 app.use(express.json());
