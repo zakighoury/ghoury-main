@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './signup.css';
+import '../User_Scss/signup.scss';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -10,6 +9,7 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
+    confirmPassword: '', // Added confirmPassword field
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,6 +24,13 @@ const Signup = () => {
     setLoading(true);
 
     try {
+      // Basic client-side validation
+      if (user.password !== user.confirmPassword) {
+        setError('Passwords do not match.');
+        setLoading(false);
+        return;
+      }
+
       const response = await axios.post('/signup', user);
 
       if (response.status === 400 || !response.data) {
@@ -85,7 +92,18 @@ const Signup = () => {
             autoComplete="on"
           />
 
-          <button type="submit" id="submit-btn" disabled={loading}>
+          {/* New password confirmation field */}
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            value={user.confirmPassword}
+            onChange={handleChange}
+            required
+            autoComplete="on"
+          />
+
+          <button className="signup-btn" type="submit" id="submit-btn" disabled={loading}>
             {loading ? 'Signing up...' : 'Signup'}
           </button>
 

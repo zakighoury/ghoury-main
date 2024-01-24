@@ -1,11 +1,11 @@
 import React from 'react'
-import First from "../assets/mm.jpg";
+import First from "../../../assets/mm.jpg";
 
-const mart = () => {
+const fashion = () => {
   return (
     <div>
       <section className="mart">
-    <h5 style={{textAlign:"center",fontSize:"30px",fontWeight:"bold",}}>Mart</h5>
+    <h5 style={{textAlign:"center",fontSize:"30px",fontWeight:"bold",}}>Fashion</h5>
         <section className="sell">
    
    <section className="just_for">
@@ -119,4 +119,4 @@ const mart = () => {
   )
 }
 
-export default mart
+export default fashion

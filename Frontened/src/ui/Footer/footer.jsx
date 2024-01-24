@@ -1,4 +1,10 @@
 import React from 'react'
+import "./Footer.scss"
+import Pakistan from "../../assets/Pakistan.png";
+import Bangladesh from "../../assets/Bangladesh.png";
+import Srilanka from "../../assets/Srilanka.png";
+import Myanmar from "../../assets/Myanmar.png";
+import Nepal from "../../assets/Nepal.png";
 
 const footer = () => {
   return (
@@ -16,6 +22,13 @@ const footer = () => {
          <li><a>Contact Us</a></li>
          <li><a>Purchase Protection</a></li>
          <li><a>Ghoury Pick up Points</a></li>
+         <ul className='footer2-child'>
+         <li><h6>Make Money with us</h6></li>
+         <li><a>Returns & Refunds</a></li>
+         <li><a>Ghoury Shop</a></li>
+         <li><a>Contact Us</a></li>
+        
+         </ul>
         </ul>
         </div>
 <div className="footer2">
@@ -37,12 +50,40 @@ const footer = () => {
 <div className="footer3">
 <ul>
 <li><h6>Follow Us</h6></li>
-  <li><a>Daraz International</a></li>
-  <li><a>Pakistan</a></li>
-  <li><a>Bangladesh</a></li>
-  <li><a>Sri Lanka</a></li>
-  <li><a>Myanmar</a></li>
-  <li><a>Nepal</a></li>
+  <li><a>Ghoury International</a></li>
+  <ul>
+  <li>
+    <a href="your_link_for_Pakistan">
+      <img src={Pakistan} alt="Pakistan" />
+      Pakistan
+    </a>
+  </li>
+  <li>
+    <a href="your_link_for_Bangladesh">
+      <img src={Bangladesh} alt="Bangladesh" />
+      Bangladesh
+    </a>
+  </li>
+  <li>
+    <a href="your_link_for_Sri_Lanka">
+      <img src={Srilanka} alt="Sri Lanka" />
+      Sri Lanka
+    </a>
+  </li>
+  <li>
+    <a href="your_link_for_Myanmar">
+      <img src={Myanmar} alt="Myanmar" />
+      Myanmar
+    </a>
+  </li>
+  <li>
+    <a href="your_link_for_Nepal">
+      <img src={Nepal} alt="Nepal" />
+      Nepal
+    </a>
+  </li>
+</ul>
+
 </ul>
 </div>
 <div className="footer4">

@@ -1,11 +1,11 @@
 import React from 'react'
-import First from "../assets/mm.jpg";
+import First from "../../../assets/mm.jpg";
 
 const mart = () => {
   return (
     <div>
       <section className="mart">
-    <h5 style={{textAlign:"center",fontSize:"30px",fontWeight:"bold",}}>Free Delivery</h5>
+    <h5 style={{textAlign:"center",fontSize:"30px",fontWeight:"bold",}}>Home Appliance</h5>
         <section className="sell">
    
    <section className="just_for">

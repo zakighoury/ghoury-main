@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "../assets/profile.png";
+import Profile from "../../assets/profile.png";
 // import { useNavigate } from "react-router-dom";
 
 import {
@@ -16,11 +16,11 @@ import {
 } from "react-icons/fa";
 import { Menu, Dropdown } from "antd";
 import { Link } from "react-router-dom";
+import "./Header.scss";
 
 const header = () => {
   // const navigate = useNavigate();
-  
-  
+
   const helpMenu = (
     <Menu>
       <Menu.Item key="helpCenter">
@@ -67,9 +67,9 @@ const header = () => {
           <div className="search">
             <input
               type="text"
-              placeholder="  Search in  Ghoury"
+              placeholder="Search in Ghoury"
               className="search_text"
-            ></input>
+            />
           </div>
           <div className="cart">
             <div className="login ">
@@ -77,16 +77,17 @@ const header = () => {
                 <FaUser /> Login &nbsp; |
               </Link>
             </div>
+           
             <div className="signup">
               <Link className="a" to="/signup">
                 SignUp
               </Link>
             </div>
             <div className="lang">
-              
-                <a className="a" >
-                    <FaGlobe />&nbsp;EN&nbsp;
-                </a>
+              <a className="a">
+                <FaGlobe />
+                &nbsp;EN&nbsp;
+              </a>
             </div>
             <div className="shop">
               <Link className="a" to="/shop">

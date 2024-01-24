@@ -1,27 +1,27 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Main from "./ui/main";
-import MainLayout from "./ui/MainLayout";
-import Shop from "./user/shop";
-import Mart from "./ui/mart";
-import Fashion from "./ui/fashion";
-import Beauty from "./ui/beauty";
-import Home_Decor from "./ui/home_decor";
-import HomeApp from "./ui/homeapp";
-import Free_Delivery from "./ui/free_delivery";
-import { useState, useEffect } from "react";
-import Login from "./user/login"
-import Signup from "./user/signup"
-import Data from "./user/userdata"
+import MainLayout from "./ui/HF Combine/MainLayout";
+import Main from "./ui/Index/Main";
+import Shop from "./user/Services/shop";
+import Mart from "./ui/Index/Index_Pages/mart";
+import Fashion from "./ui/Index/Index_Pages/fashion";
+import Beauty from "./ui/Index/Index_Pages/beauty";
+import Home_Decor from "./ui/Index/Index_Pages/home_decor";
+import HomeApp from "./ui/Index/Index_Pages/homeapp";
+import Free_Delivery from "./ui/Index/Index_Pages/free_delivery";
+import { useState } from "react";
+import Login from "./user/Services/login"
+import Signup from "./user/Services/signup"
+import Data from "./user/Services/userdata"
 
 function App() {
-  const [message, setMessage] = useState("");
+  // const [message, setMessage] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:5000/message")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/message")
+  //     .then((res) => res.json())
+  //     .then((data) => setMessage(data.message));
+  // }, []);
   return (
     <>
     {/* <h1>{message}</h1> */}

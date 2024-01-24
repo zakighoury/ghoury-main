@@ -1,149 +1,44 @@
-import React from "react";
-import Slider from "../assets/pic.jpg";
-import Download from "../assets/img.png";
-import First from "../assets/mm.jpg";
-import Banner from "../assets/banner.png";
-import Shirt from "../assets/shirt.jpg";
-import Camera from "../assets/camera.png";
-import Skin from "../assets/skinprod.jpg";
-import Mart from "../assets/mart.png";
-import Home from "../assets/home&decor.jpg";
-import HomeApp from "../assets/home-appliance.jpg";
-import free from "../assets/free-delivery.png";
-import low from "../assets/low price.jpg";
-import shop from "../assets/shop-now.jpg";
-import New from "../assets/new-on.jpg";
-import Flash from "../assets/flash-sale.jpg";
+import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Slider from "./Slider/Slider";
 import "@fortawesome/fontawesome-free/css/all.css";
-import { Link } from "react-router-dom";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-const main = () => {
+
+import Download from "../../assets/img.png";
+import First from "../../assets/mm.jpg";
+import Banner from "../../assets/banner.png";
+import Shirt from "../../assets/shirt.jpg";
+import Camera from "../../assets/camera.png";
+import Skin from "../../assets/skinprod.jpg";
+import Mart from "../../assets/mart.png";
+import Home from "../../assets/home&decor.jpg";
+import HomeApp from "../../assets/home-appliance.jpg";
+import free from "../../assets/free-delivery.png";
+import low from "../../assets/low price.jpg";
+import shop from "../../assets/shop-now.jpg";
+import New from "../../assets/new-on.jpg";
+import Flash from "../../assets/flash-sale.jpg";
+
+const Main = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate('/login');
+    }
+  }, []);
+
   return (
     <>
-      <section className="content">
-        <section className="left">
-          <a href="">
-            <i className="fas fa-shopping-basket"></i> Groceries & Pets
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-heart"></i> Health & Beauty
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-male"></i> Men's Fashion
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-female"></i> Women's Fashion
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-baby"></i> Mother & Baby
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-home"></i> Home & Lifestyle
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-laptop"></i> Electronics Devices
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-mobile-alt"></i> Electronics Accessories
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-tv"></i> TV & Home Appliances
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-bicycle"></i> Sports & Outdoor
-          </a>
-          <br></br>
-          <a href="">
-            <i className="level-1-icon ic-cat-FashionAccess \uE73F"></i>{" "}
-            Watches, Bags & Jewellery
-          </a>
-          <br></br>
-          <a href="">
-            <i className="fas fa-car"></i> Automotive & Motorbike
-          </a>
-          <br></br>
-        </section>
-        <section className="right">
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            className="mySwiper"
-            style={{
-              "--swiper-navigation-color": "#FFFFFF",
-              "--swiper-pagination-color": "#FFFFFF",
-              "--swiper-navigation-size": "30px",
-             }}
-          >
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 1" />
-              {/* <p>Description for Image 1</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 2" />
-              {/* <p>Description for Image 2</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 3" />
-              {/* <p>Description for Image 3</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 4" />
-              {/* <p>Description for Image 4</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 5" />
-              {/* <p>Description for Image 5</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 6" />
-              {/* <p>Description for Image 6</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 7" />
-              {/* <p>Description for Image 7</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 8" />
-              {/* <p>Description for Image 8</p> */}
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={Slider} alt="Slider Image 9" />
-              {/* <p>Description for Image 9</p> */}
-            </SwiperSlide>
-          </Swiper>
-        </section>
-      </section>
+      <Slider />
+      <button onClick={()=>{localStorage.removeItem("token") ,navigate('/login')}}>Logout</button>
+      <div className="middle_img">
+        <img src={Banner} />
+        <a className="middle_btn">
+          Add to Cart&nbsp;
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </a>
+      </div>
       <section className="middle">
-        <div className="middle_img">
-          <img src={Banner} />
-          <a className="middle_btn">
-            Add to Cart&nbsp;
-            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-          </a>
-        </div>
-
         <div className="middle_head">
           <li>
             <i class="fas fa-shield-alt"></i>&nbsp;
@@ -254,7 +149,7 @@ const main = () => {
         </div>
         <div className="light"></div>
         <section className="flash">
-          <div className="just_img">
+          <div className="flash_img">
             <img src={First}></img>
             <p>
               Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
@@ -264,7 +159,7 @@ const main = () => {
               Rs.00.00<span></span>
             </p>
           </div>
-          <div className="just_img">
+          <div className="flash_img">
             <img src={First}></img>
             <p>
               Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
@@ -274,7 +169,7 @@ const main = () => {
               Rs.00.00<span></span>
             </p>
           </div>
-          <div className="just_img">
+          <div className="flash_img">
             <img src={First}></img>
             <p>
               Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
@@ -284,7 +179,7 @@ const main = () => {
               Rs.00.00<span></span>
             </p>
           </div>
-          <div className="just_img">
+          <div className="flash_img">
             <img src={First}></img>
             <p>
               Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
@@ -294,7 +189,17 @@ const main = () => {
               Rs.00.00<span></span>
             </p>
           </div>
-          <div className="just_img">
+          <div className="flash_img">
+            <img src={First}></img>
+            <p>
+              Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
+              Bluetooth Ear buds
+            </p>
+            <p>
+              Rs.00.00<span></span>
+            </p>
+          </div>
+          <div className="flash_img">
             <img src={First}></img>
             <p>
               Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
@@ -307,57 +212,154 @@ const main = () => {
         </section>
       </section>
       {/* categorie section */}
+      <h1 className="cate">Categories</h1>
       <section className="categories">
-        <h1 className="cate">Categories</h1>
         <section className="cat_one">
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
+            <h5>sample text</h5>
+          </div>
+          <div className="cat_img">
+            <img src={First}></img>
+            <br />
+
+            <h5>sample text</h5>
+          </div>
+          <div className="cat_img">
+            <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
         </section>
         <section className="cat_two">
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
           <div className="cat_img">
             <img src={First}></img>
+            <br />
+
+            <h5>sample text</h5>
+          </div>
+          <div className="cat_img">
+            <img src={First}></img>
+            <br />
+
+            <h5>sample text</h5>
+          </div>
+          <div className="cat_img">
+            <img src={First}></img>
+            <br />
+
             <h5>sample text</h5>
           </div>
         </section>
       </section>
 
+      {/* start just for  you section */}
+
       <h1 className="just">Just For you</h1>
 
-      <section className="sell">
+      <section className="just-section">
+        <section className="just_for">
+          <div className="just_img">
+            <img src={First}></img>
+            <p>
+              Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
+              Bluetooth Ear buds
+            </p>
+            <p>
+              Rs.00.00<span></span>
+            </p>
+          </div>
+          <div className="just_img">
+            <img src={First}></img>
+            <p>
+              Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
+              Bluetooth Ear buds
+            </p>
+            <p>
+              Rs.00.00<span></span>
+            </p>
+          </div>
+          <div className="just_img">
+            <img src={First}></img>
+            <p>
+              Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
+              Bluetooth Ear buds
+            </p>
+            <p>
+              Rs.00.00<span></span>
+            </p>
+          </div>
+          <div className="just_img">
+            <img src={First}></img>
+            <p>
+              Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
+              Bluetooth Ear buds
+            </p>
+            <p>
+              Rs.00.00<span></span>
+            </p>
+          </div>
+          <div className="just_img">
+            <img src={First}></img>
+            <p>
+              Air buds Two Max Wireless Earbuds TWS Earbud, Wireless Earphones
+              Bluetooth Ear buds
+            </p>
+            <p>
+              Rs.00.00<span></span>
+            </p>
+          </div>
+        </section>
         <section className="just_for">
           <div className="just_img">
             <img src={First}></img>
@@ -470,4 +472,4 @@ const main = () => {
   );
 };
 
-export default main;
+export default Main;
