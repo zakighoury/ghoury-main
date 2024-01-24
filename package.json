@@ -7,14 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "Frontend": "cd Frontened && npm start",
     "backened": "cd backened && npm start",
-    "start": "concurrently \"npm run Frontend\" \"npm run backened\""
-
+    "start": "concurrently \"npm run Frontend\" \"npm run backened\"",
+    "build": "react-scripts build"
 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "react-scripts": "^5.0.1"
   }
 }
