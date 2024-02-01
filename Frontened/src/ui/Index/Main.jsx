@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import Slider from "./Slider/Slider";
 import "@fortawesome/fontawesome-free/css/all.css";
 
@@ -23,14 +24,20 @@ const Main = () => {
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      navigate('/login');
+      navigate("/login");
     }
   }, []);
 
   return (
     <>
       <Slider />
-      <button onClick={()=>{localStorage.removeItem("token") ,navigate('/login')}}>Logout</button>
+      {/* <button
+        onClick={() => {
+          localStorage.removeItem("token") && navigate("/login");
+        }}
+      >
+        Logout
+      </button> */}
       <div className="middle_img">
         <img src={Banner} />
         <a className="middle_btn">

@@ -1,13 +1,14 @@
 {
+  
   "name": "ghoury-main",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "Frontend": "cd Frontened && npm start",
-    "backened": "cd backened && npm start",
-    "start": "concurrently \"npm run Frontend\" \"npm run backened\"",
+    "frontend": "cd frontened && npm start",
+    "backend": "cd backend && npm start",
+    "dev": "concurrently \"npm run frontened\" \"npm run backend\"",
     "build": "react-scripts build"
 
   },

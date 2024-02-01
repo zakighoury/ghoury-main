@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "../../assets/profile.png";
 // import { useNavigate } from "react-router-dom";
-
+import { useAuth } from "../../Auth/AuthContext";
 import {
   FaUser,
   FaShoppingCart,
@@ -18,7 +18,8 @@ import { Menu, Dropdown } from "antd";
 import { Link } from "react-router-dom";
 import "./Header.scss";
 
-const header = () => {
+const Header = () => {
+  const { userProfile, logout } = useAuth();
   // const navigate = useNavigate();
 
   const helpMenu = (
@@ -45,9 +46,18 @@ const header = () => {
         <FaShieldAlt /> Purchase Protection
       </Menu.Item>
     </Menu>
-  );
+  )
   return (
     <>
+     {userProfile ? (
+        <div>
+          <p>Email: {userProfile.email}</p>
+          {/* Display other user details as needed */}
+          <button onClick={()=>logout()}>Logout</button>
+        </div>
+      ) : (
+        <p>Not logged in</p>
+      )}
       <section className="combined">
         <section className="Header">
           <div className="first">
@@ -101,4 +111,4 @@ const header = () => {
   );
 };
 
-export default header;
+export default Header;

@@ -1,11 +1,14 @@
+// Login.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from 'antd';
 import { FacebookOutlined, GoogleOutlined } from '@ant-design/icons';
+import { useAuth } from "../../Auth/AuthContext"; // Import the useAuth hook
 import "../User_Scss/Login.scss";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth(); // Use the login function from the authentication context
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -24,36 +27,17 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+      // Perform login logic and get user data
+      const userData = {
+        email: email, // Replace with actual user data
+        // Include other user details as needed
+      };
 
-      const data = await response.json();
-      console.log("Server Response:", data);
+      // Update the global authentication state
+      login(userData);
 
-      if (response.ok) {
-        if (data.token) {
-          console.log("Login successful");
-          const token = data.token;
-          // console.log("Email:", formData.email);
-          // console.log("Password:", formData.password);
-          // console.log("Token:", token);
-          localStorage.setItem("token", token);
-          localStorage.setItem("loggedIn", true);
-          navigate("/main");
-        } else {
-          console.error("Token is undefined in the server response.");
-        }
-      } else {
-        console.error("Login failed:", data.error);
-      }
+      // Redirect to the main page
+      navigate("/main");
     } catch (error) {
       console.error("Error during login:", error);
     }
